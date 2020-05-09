@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 /**
@@ -8,6 +9,7 @@ import java.util.NoSuchElementException;
 //The resultant heap will be of type max heap in this class
 public class Heap<T extends Comparable<T>> {
     //This arraylist holds all the items that are entered by the user
+    private ArrayList<T> items;
     public Heap() {
         //initialising the arraylist in the constructor
         items = new ArrayList<T>();
@@ -99,13 +101,4 @@ public class Heap<T extends Comparable<T>> {
     public String toString() {
         return items.toString();
     }
-
-
-
-
-
-
-
-
-
 }
