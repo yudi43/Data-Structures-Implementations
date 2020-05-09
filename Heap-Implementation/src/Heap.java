@@ -77,6 +77,7 @@ public class Heap<T extends Comparable<T>> {
         }
     }
 
+    //function to delete elements from the heap
     public T delete() throws NoSuchElementException {
         if(items.size() == 0) {
             throw new NoSuchElementException();
