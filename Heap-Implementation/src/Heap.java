@@ -12,23 +12,37 @@ public class Heap<T extends Comparable<T>> {
     }
 
     private void siftup() {
-        int k = items.size() - 1; // k goes upto the last index of the arraylist
-        while(k > 0) {
-            //p is the index of parent of item at index k
-            int p = (k - 1) / 2;
-            int parent = items.get(p);
-            int item = items.get(k);
+        //find the last index in the arraylist:
+        int k = items.size() - 1;
 
-            if(parent < item) {
-                //swap the item with its parent
-                items.set(p, parent);
-                items.set(k, item);
+        while(k > 0) {
+            //index of the parent
+            int p = (k - 1) / 2;
+
+            //element at index k:
+            T item = items.get(k);
+            //parent of that item
+            T parent = items.get(p);
+
+            //check if the parent is smalled that the child:
+            if(item.compareTo(parent) > 0) {
+                //then we swap
+                items.set(k, parent);
+                items.set(p, item);
                 k = p;
             }else{
                 break;
             }
         }
     }
+
+    //A simple public function to insert an element into the heap
+    public void insert(T item) {
+        items.add(item);
+        siftup();
+    }
+
+
 
 
 
