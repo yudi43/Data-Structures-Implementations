@@ -77,4 +77,18 @@ public class Heap<T extends Comparable<T>> {
         }
     }
 
+    public T delete() throws NoSuchElementException {
+        if(items.size() == 0) {
+            throw new NoSuchElementException();
+        }
+        if(items.size() == 1) {
+            return items.remove(0);
+        }
+        T hold = items.get(0);
+        items.set(0, items.remove(items.size() - 1));
+        siftDown();
+        return hold;
+    }
+
+
 }
