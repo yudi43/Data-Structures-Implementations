@@ -28,7 +28,7 @@ public class Heap<T extends Comparable<T>> {
             //parent of that item
             T parent = items.get(p);
 
-            //check if the parent is smalled that the child:
+            //check if the parent is smaller than the child:
             if(item.compareTo(parent) > 0) {
                 //then we swap
                 items.set(k, parent);
@@ -56,7 +56,7 @@ public class Heap<T extends Comparable<T>> {
             int max = l; //currently assuming that the left child is the max among both the children
             int r = max + 1; //this should be the right child
 
-            if(r < items.size()) { //checking if the right item exists
+            if(r < items.size()) { //checking if the right child exists
                 if(items.get(r).compareTo(items.get(max)) > 0) {
                     //if the right items exists and is greater than the current max:
                     max++;
