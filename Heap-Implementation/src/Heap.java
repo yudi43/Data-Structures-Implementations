@@ -58,7 +58,7 @@ public class Heap<T extends Comparable<T>> {
 
             if(r < items.size()) { //checking if the right child exists
                 if(items.get(r).compareTo(items.get(max)) > 0) {
-                    //if the right items exists and is greater than the current max:
+                    //if the right item exists and is greater than the current max:
                     max++;
                 }
             }
