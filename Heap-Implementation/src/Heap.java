@@ -44,35 +44,37 @@ public class Heap<T extends Comparable<T>> {
 
     //-----------------------------Deletion/siftDown below----------------------
 
-    priavate void siftdown() {
+    private void siftDown() {
+        //starts from zero and goes upto the end
         int k = 0;
-        //index of first/left child of element at k should be 2k + 1
-        int l = 2*k + 1;
-        while(l < items.size()) {
-            //we need the max item out of both the children of the parent, for now let's assign the max to the left child.
-            int max = l;
-            int r = max + 1;
+        int l = 2*k + 1; //this should be the left child of element at index k
+        while(l < items.size()) { //until the the left child is in bounds of the arraylist
+            int max = l; //currently assuming that the left child is the max among both the children
+            int r = max + 1; //this should be the right child
 
-            //check if there is a right child to that parent:
-            if(r < items.size()) { // if it is in bounds means that a child exists
-                if (items.get(r).compareTo(items.get(l)) > 0) { //comparing both the children for finding which is greater.
+            if(r < items.size()) { //checking if the right item exists
+                if(items.get(r).compareTo(items.get(max)) > 0) {
+                    //if the right items exists and is greater than the current max:
                     max++;
                 }
             }
-
-            if(items.get(k).compareTo(items.get(max)) < 0) {
-                //swap the items:
-                T temp = items.get(k);
-                items.set(k, items.get(max));
-                items.set(max, temp);
+            //variable max should hold the value of the greater child by now
+            if(items.get(max).compareTo(items.get(k)) > 0) {
+                //the item at the index max is greater than the parent
+                //swap
+                T temp = items.get(max);
+                items.set(max, items.get(k));
+                items.set(k, temp);
                 k = max;
                 l = 2*k + 1;
-            }else{
+            }else {
                 break;
             }
-
         }
     }
+
+
+
 
 
 
