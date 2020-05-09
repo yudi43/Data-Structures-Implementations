@@ -40,4 +40,41 @@ public class Heap<T extends Comparable<T>> {
         }
     }
 
+    //A simple public function to insert an element into the heap
+    public void insert(T item) {
+        items.add(item);
+        siftup();
+    }
+
+    //-----------------------------Deletion/siftDown below----------------------
+
+    private void siftDown() {
+        //starts from zero and goes upto the end
+        int k = 0;
+        int l = 2*k + 1; //this should be the left child of element at index k
+        while(l < items.size()) { //until the the left child is in bounds of the arraylist
+            int max = l; //currently assuming that the left child is the max among both the children
+            int r = max + 1; //this should be the right child
+
+            if(r < items.size()) { //checking if the right child exists
+                if(items.get(r).compareTo(items.get(max)) > 0) {
+                    //if the right item exists and is greater than the current max:
+                    max++;
+                }
+            }
+            //variable max should hold the value of the greater child by now
+            if(items.get(max).compareTo(items.get(k)) > 0) {
+                //the item at the index max is greater than the parent
+                //swap
+                T temp = items.get(max);
+                items.set(max, items.get(k));
+                items.set(k, temp);
+                k = max;
+                l = 2*k + 1;
+            }else {
+                break;
+            }
+        }
+    }
+
 }
