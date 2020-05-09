@@ -88,6 +88,18 @@ public class Heap<T extends Comparable<T>> {
         return hold;
     }
 
+    public int size() {
+        return items.size();
+    }
+
+    public boolean isEmpty() {
+        return items.isEmpty();
+    }
+
+    public String toString() {
+        return items.toString();
+    }
+
 
 
 
