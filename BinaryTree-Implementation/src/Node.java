@@ -32,8 +32,7 @@ public class Node {
     }
 
     public boolean contains(int value) {
-        //if we have found the value, return true
-        if(data == value) return true;
+        if(data == value) return true; //if we have found the value, return true
         //if value is less than the root then check the left side for the value, if we hit null, then return false else make recursive calls until null or the value is found
         else if(value < data) {
             if(left == null) return false;
