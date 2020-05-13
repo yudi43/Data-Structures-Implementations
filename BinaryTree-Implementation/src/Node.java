@@ -13,7 +13,7 @@ public class Node {
         this.data = data;
     }
 
-    //function to insert items in the tree:
+    //Function to insert items in the tree:
     //The function takes a value which the new node will represent
     public void insert(int value) {
         if(value <= data) { //if the new value is lesser than the root, it goes to the left of it...
@@ -29,6 +29,20 @@ public class Node {
                 right.insert(value);
             }
         }
+    }
+
+    public boolean contains(int value) {
+        //if we have found the value, return true
+        if(data == value) return true;
+        //if value is less than the root then check the left side for the value, if we hit null, then return false else make recursive calls until null or the value is found
+        else if(value < data) {
+            if(left == null) return false;
+            else left.contains(value);
+        }else{
+            if(right == null) return false;
+            else right.contains(value);
+        }
+        return true;
     }
 
 }
