@@ -45,5 +45,22 @@ public class Node {
         return true;
     }
 
+    /*
+    * TALKING ABOUT TRAVERSAL
+    * There can be three types of traversals in Binary trees,
+    *  --> Pre Order Traversal
+    *  --> In Order Traversal
+    *  --> Post Order Traversal
+    *
+    * The order of going to the node changes in all three, there is an example of in order traversing and printing the node items below:
+    */
+
+    public void printItems() {
+        //first left node, then root node then right node...
+        if(left != null) left.printItems();
+        System.out.println(data);
+        if(right != null) right.printItems();
+    }
+
 }
 
